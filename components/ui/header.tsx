@@ -8,7 +8,7 @@ export default function Header() {
         <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-white/90 px-3 shadow-lg shadow-black/[0.03]  before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ">
           {/* Site branding */}
           <div className="flex flex-1 items-center z-50">
-            <Image src='/images/logo.png' width={28} height={28} alt="Logo" priority />
+            <Image src='/images/logowname.png' width={120} height={120} alt="Logo" priority />
           </div>
 
         {/*  navigation Links */}
