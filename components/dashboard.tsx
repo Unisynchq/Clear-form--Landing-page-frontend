@@ -1,11 +1,12 @@
 'use client';
+import SmartVideo from '@/components/smart-video';
 
 export default function Dashboard() {
   return (
-    <div className="py-40 text-center">
+    <div className="mt-8 pb-16 text-center">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-         
+
 
           {/* Video Container */}
           <div
@@ -13,35 +14,32 @@ export default function Dashboard() {
             data-aos="fade-right"
             data-aos-duration="1100"
           >
-            <div
-              className="relative w-full rounded-3xl overflow-hidden shadow-2xl"
-              style={{
-                aspectRatio: '16/9',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5) inset',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-              }}
-            >
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover"
-                src="/videos/Dashboard.mp4"
-              />
-              {/* Glass effect overlay */}
-              <div className="absolute inset-0 pointer-events-none rounded-3xl bg-linear-to-br from-white/10 via-transparent to-transparent" />
-            </div>
+            <SmartVideo
+              src="/videos/Dashboard.mp4"
+              aspectRatio="16/9"
+              rounded="rounded-2xl"
+            />
           </div>
-           {/* Text Content */}
+          {/* Text Content */}
           <div className="flex flex-col justify-center text-left lg:col-span-1" data-aos="fade-left" data-aos-duration="1100">
-            <h2 className="text-[30px] font-bold mb-6 text-gray-900">Your Feedback, Structured for Decisions</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              See what matters instantly. Clearform turns raw responses into structured signals — so you don’t just view data, you understand it. Track clarity, quality, and decision-readiness in one place.
-
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Your Feedback, Structured for Decisions</h2>
+            <p className="text-base text-gray-600 leading-relaxed mb-4">
+              Everything in one place. No tab-switching, no hunting for data — just a clear view of all your forms and what's happening inside them.
             </p>
+            <ul className="space-y-3 text-sm text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+                Organise your forms into folders and see each one's response count, quality score, and a quick insight — all at a glance.
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+                View the latest and previous responses side by side — no extra clicks, no separate pages.
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+                Nobody else puts this all in one view. It's the kind of clarity that actually saves you time.
+              </li>
+            </ul>
           </div>
         </div>
       </div>

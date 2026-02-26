@@ -6,12 +6,6 @@ import { useState } from "react";
 import FAQ from "@/components/faq";
 
 const gradientButtonStyles = `
-  @keyframes shift-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
   @keyframes slideUpFade {
     from {
       opacity: 0;
@@ -43,17 +37,6 @@ const gradientButtonStyles = `
       opacity: 1;
       transform: scale(1);
     }
-  }
-  
-  .gradient-button {
-    background: linear-gradient(-45deg, #ff4338, #ef4444, #dc2626, #b91c1c);
-    background-size: 300% 300%;
-    animation: shift-gradient 6s ease infinite;
-    box-shadow: 0 0 20px rgba(255, 67, 56, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-  
-  .gradient-button:hover {
-    animation: pulse-glow 1s ease-in-out infinite, shift-gradient 1s ease infinite;
   }
   
   .card-container {
@@ -136,210 +119,184 @@ export default function EarlyAccessPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
     console.log("Form submitted:", formData);
     setSubmitted(true);
-    // Reset form after 2 seconds
-    setTimeout(() => {
-      setFormData({ name: "", phone: "", email: "", location: "", ageRange: "" });
-      setSubmitted(false);
-    }, 2000);
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-red-100 via-blue-100 to-purple-100 px-4 py-25">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-32 mb-10 overflow-hidden">
       <style>{gradientButtonStyles}</style>
-      <div className="w-full max-w-xl mt-0">
+      <div className={`w-full transition-all duration-400 ease-in-out ${submitted ? 'max-w-2xl' : 'max-w-xl'} mt-0`}>
         {/* Glassy Card Container */}
         <div className="card-container bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/30 p-1 md:p-10">
-            <div>
-                {/* Logo */}
-                <div className="logo-section flex justify-center mb-3  w-fit mx-auto px-2">
-                    <Image src={ClearformLogo} alt="Clearform Logo" className="h-12 w-auto" />
-                </div>
-
-                {/* Headline */}
-                <h1 className="headline flex justify-center gap-3 text-3xl md:text-4xl font-bold text-gray-900 text-center mb-3">
-                    Join the Clearform Beta
-                </h1>
-
-                {/* Subtext */}
-                <p className="subtext text-center text-gray-700 text-sm md:text-base mb-5 leading-relaxed">
-                    Get exclusive access and help shape the future of form analytics. Spots are limited.
-                </p>
+          <div>
+            {/* Logo */}
+            <div className="logo-section flex justify-center mb-3  w-fit mx-auto px-2">
+              <Image src={ClearformLogo} alt="Clearform Logo" className="h-12 w-auto" />
             </div>
-             <div>
 
-          {/* Form */}
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Full Name Field */}
-              <div className='form-field relative'>
-                <input
-                  type="text"
-                  name="name"
-                  id='name1'
-                  autoComplete="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={` peer w-full h-10 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 outline-none transition-colors ${
-                    errors.name ? 'border-red-700' : 'border-gray-300'
-                  }`}
-                  required
-                />
-                <label htmlFor='name1' className={`absolute left-1 bg-white transition-all duration-300 text-[15px] transform scale-100 px-1 py-0 peer-focus:text-[13px] peer-focus:text-red-700 peer-focus:-top-3  peer-focus:opacity-100 peer-focus:font-semibold                          
-                                  ${formData.name?
-                                  "-top-3 text-[13px] font-semibold  text-red-700":
-                                  " top-2  text-gray-500 "}`}>
-                  Full Name
-                </label>
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-700">{errors.name}</p>
-                )}
-              </div>
+            {/* Headline */}
+            <h1 className="headline flex justify-center gap-3 text-3xl md:text-4xl font-bold text-gray-900 text-center mb-3">
+              Join the Clearform Beta
+            </h1>
 
-              {/* Phone Number Field */}
-              <div className='form-field relative'>
-                <input
-                  type="tel"
-                  name="phone"
-                  id='phone1'
-                  autoComplete="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={` peer w-full h-10 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 outline-none transition-colors ${
-                    errors.phone ? 'border-red-700' : 'border-gray-300'
-                  }`}
-                  required
-                />
-                <label htmlFor='phone1' className={`absolute left-1 bg-white transition-all duration-300 text-[15px] transform scale-100 px-1 py-0 peer-focus:text-[13px] peer-focus:text-red-700 peer-focus:-top-3  peer-focus:opacity-100 peer-focus:font-semibold                          
-                                  ${formData.phone?
-                                  "-top-3 text-[13px] font-semibold  text-red-700":
-                                  " top-2  text-gray-500 "}`}>
-                  Phone Number
-                </label>
-                {errors.phone && (
-                  <p className="mt-1 text-sm text-red-700">{errors.phone}</p>
-                )}
-              </div>
+            {/* Subtext */}
+            <p className="subtext text-center text-gray-700 text-sm md:text-base mb-5 leading-relaxed">
+              Get exclusive access and help shape the future of form analytics. Spots are limited.
+            </p>
+          </div>
 
-              {/* Email Address Field */}
-              <div className='form-field relative'>
-                <input
-                  type="email"
-                  name="email"
-                  id='email1'
-                  autoComplete="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={` peer w-full h-10 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 outline-none transition-colors ${
-                    errors.email ? 'border-red-700' : 'border-gray-300'
-                  }`}
-                  required
-                />
-                <label htmlFor='email1' className={`absolute left-1 bg-white transition-all duration-300 text-[15px] transform scale-100 px-1 py-0 peer-focus:text-[13px] peer-focus:text-red-700 peer-focus:-top-3  peer-focus:opacity-100 peer-focus:font-semibold                          
-                                  ${formData.email?
-                                  "-top-3 text-[13px] font-semibold  text-red-700":
-                                  " top-2  text-gray-500 "}`}>
-                  Email Address
-                </label>
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-700">{errors.email}</p>
-                )}
-              </div>
+          <div>
 
-              {/* Location/City Field */}
-              <div className='form-field relative'>
-                <input
-                  type="text"
-                  name="location"
-                  id='location1'
-                  autoComplete="address-level2"
-                  value={formData.location}
-                  onChange={handleChange}
-                  className={` peer w-full h-10 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-700 focus:border-red-700 outline-none transition-colors ${
-                    errors.location ? 'border-red-700' : 'border-gray-300'
-                  }`}
-                  required
-                />
-                <label htmlFor='location1' className={`absolute left-1 bg-white transition-all duration-300 text-[15px] transform scale-100 px-1 py-0 peer-focus:text-[13px] peer-focus:text-red-700 peer-focus:-top-3  peer-focus:opacity-100 peer-focus:font-semibold                          
-                                  ${formData.location?
-                                  "-top-3 text-[13px] font-semibold  text-red-700":
-                                  " top-2  text-gray-500 "}`}>
-                  Location/City
-                </label>
-                {errors.location && (
-                  <p className="mt-1 text-sm text-red-700">{errors.location}</p>
-                )}
-              </div>
-
-              {/* Age Range Field */}
-              <div className='form-field space-y-3'>
-                <label className="block text-gray-700 font-medium text-sm">Age Range</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {['Below 18', '18 - 30', '30 - 40', '40+'].map((range) => (
-                    <button
-                      key={range}
-                      type="button"
-                      onClick={() => handleAgeRangeChange(range)}
-                      className={`py-3 px-4 rounded-lg font-semibold transition-all duration-200 border-2 ${
-                        formData.ageRange === range
-                          ? 'border-red-700 bg-red-50 text-red-700'
-                          : 'border-gray-300 bg-white text-gray-700 hover:border-red-400'
-                      }`}
-                    >
-                      {range}
-                    </button>
-                  ))}
+            {/* Form */}
+            {!submitted ? (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Full Name Field */}
+                {/* Full Name */}
+                <div className="form-field space-y-1.5">
+                  <label htmlFor="name1" className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <input
+                    type="text" name="name" id="name1" autoComplete="name"
+                    placeholder="e.g. Alex Johnson"
+                    value={formData.name} onChange={handleChange}
+                    className={`w-full px-4 py-2.5 text-sm bg-gray-50 border rounded-lg outline-none transition-all duration-150 focus:bg-white focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 placeholder:text-gray-400 ${errors.name ? 'border-red-400' : 'border-gray-200'}`}
+                    required
+                  />
+                  {errors.name && <p className="text-xs text-red-500">{errors.name}</p>}
                 </div>
-                {errors.ageRange && (
-                  <p className="mt-1 text-sm text-red-700">{errors.ageRange}</p>
-                )}
-              </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="submit-btn gradient-button w-full mt-8 px-8 py-3 text-white rounded-xl whitespace-nowrap font-bold shadow-2xl transition-all duration-300 text-lg tracking-wide relative overflow-hidden group hover:scale-105"
+                {/* Phone Number */}
+                <div className="form-field space-y-1.5">
+                  <label htmlFor="phone1" className="block text-sm font-medium text-gray-700">Phone Number</label>
+                  <input
+                    type="tel" name="phone" id="phone1" autoComplete="tel"
+                    placeholder="e.g. +91 98765 43210"
+                    value={formData.phone} onChange={handleChange}
+                    className={`w-full px-4 py-2.5 text-sm bg-gray-50 border rounded-lg outline-none transition-all duration-150 focus:bg-white focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 placeholder:text-gray-400 ${errors.phone ? 'border-red-400' : 'border-gray-200'}`}
+                    required
+                  />
+                  {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
+                </div>
+
+                {/* Email Address */}
+                <div className="form-field space-y-1.5">
+                  <label htmlFor="email1" className="block text-sm font-medium text-gray-700">Email Address</label>
+                  <input
+                    type="email" name="email" id="email1" autoComplete="email"
+                    placeholder="e.g. alex@company.com"
+                    value={formData.email} onChange={handleChange}
+                    className={`w-full px-4 py-2.5 text-sm bg-gray-50 border rounded-lg outline-none transition-all duration-150 focus:bg-white focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 placeholder:text-gray-400 ${errors.email ? 'border-red-400' : 'border-gray-200'}`}
+                    required
+                  />
+                  {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
+                </div>
+
+                {/* Location/City */}
+                <div className="form-field space-y-1.5">
+                  <label htmlFor="location1" className="block text-sm font-medium text-gray-700">Location / City</label>
+                  <input
+                    type="text" name="location" id="location1" autoComplete="address-level2"
+                    placeholder="e.g. Bengaluru"
+                    value={formData.location} onChange={handleChange}
+                    className={`w-full px-4 py-2.5 text-sm bg-gray-50 border rounded-lg outline-none transition-all duration-150 focus:bg-white focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 placeholder:text-gray-400 ${errors.location ? 'border-red-400' : 'border-gray-200'}`}
+                    required
+                  />
+                  {errors.location && <p className="text-xs text-red-500">{errors.location}</p>}
+                </div>
+
+                {/* Age Range Field */}
+                <div className='form-field space-y-2'>
+                  <label className="block text-gray-700 font-medium text-sm">
+                    Age Range
+                    <span className="ml-2 text-xs font-normal text-gray-400">(Optional)</span>
+                  </label>
+                  <div className="inline-flex w-full rounded-xl border border-gray-200 bg-gray-100 p-1">
+                    {['Below 18', '18–30', '30–40', '40+'].map((range) => (
+                      <button
+                        key={range}
+                        type="button"
+                        onClick={() => handleAgeRangeChange(range)}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-150 ${formData.ageRange === range
+                          ? 'bg-gray-900 text-white shadow-sm'
+                          : 'bg-transparent text-gray-500 hover:text-gray-800'
+                          }`}
+                      >
+                        {range}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="submit-btn bg-slate-900 w-full mt-8 px-8 py-3 text-white rounded-xl whitespace-nowrap font-bold shadow-lg transition-all duration-300 text-lg tracking-wide group hover:bg-slate-800"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Request Access
+                    <span className="group-hover:translate-x-1 transition-transform duration-200 flex items-center">
+                      <svg className="w-5 h-5 -mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </form>
+            ) : (
+              /* Success State — horizontal card */
+              <div
+                className="success-message"
+                style={{ animation: "fadeInSuccess 0.35s ease-out forwards", opacity: 0 }}
               >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Request Access
-                  <span className="group-hover:translate-x-1 transition-transform duration-100">→</span>
-                </span>
-                <div 
-                  className="absolute inset-0 bg-linear-to-r from-red-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-100"
-                />
-              </button>
-            </form>
-          ) : (
-            /* Success Message */
-            <div className="success-message text-center py-8">
-              <div className="mb-4 border-y w-fit mx-auto py-3">
-                <div className="inline-flex items-center justify-center w-26 h-26 bg-green-100 rounded-full">
-                  <svg className="w-18 h-18 text-green-700" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                <style>{`
+                  @keyframes fadeInSuccess {
+                    from { opacity: 0; transform: translateY(6px); }
+                    to { opacity: 1; transform: translateY(0); }
+                  }
+                `}</style>
+                <div className="flex flex-row items-center gap-8 py-6 px-2">
+                  {/* Large green check */}
+                  <div className="shrink-0 w-20 h-20 rounded-full bg-green-50 border border-green-100 flex items-center justify-center">
+                    <svg className="w-9 h-9 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  {/* Text + Back */}
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-1">Thank You.</h2>
+                    <p className="text-base text-gray-600 leading-relaxed mb-1">
+                      You're on the Clearform beta list. Please check your email.
+                    </p>
+                    <p className="text-sm text-gray-400 mb-5">You can return to the form anytime.</p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: "", phone: "", email: "", location: "", ageRange: "" });
+                      }}
+                      className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors duration-150"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                      </svg>
+                      Go Back
+                    </button>
+                  </div>
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome Aboard!</h2>
-              <p className="text-gray-700 text-sm">
-                Thanks for joining. Check your email for next steps. We'll be in touch soon!
-              </p>
-            </div>
-          )}
-           
+            )}
 
-          {/* Footer Text */}
-          <p className="footer-text text-xs text-gray-500 text-center mt-8">
-            We care about your privacy. We'll only use your information to contact you about the beta.
-          </p>
-            </div>
+
+            {/* Footer Text */}
+            <p className="footer-text text-xs text-gray-500 text-center mt-8">
+              We care about your privacy. We'll only use your information to contact you about the beta.
+            </p>
+          </div>
         </div>
 
 
       </div>
-              {/* FAQ Component */}
-              <FAQ />
+      {/* FAQ Component */}
+      <FAQ />
     </section>
   );
 }

@@ -11,28 +11,28 @@ export default function ComparisonTable() {
     },
     {
       traditional: "Quantity-driven metrics",
-      clearform: "Decision-ready clarity"
+      clearform: "Decision-ready clarity, every time"
     },
     {
       traditional: "Analyze after submission",
-      clearform: "Structured before submission"
+      clearform: "Advanced trends and analysis in one go"
     },
     {
       traditional: "Manual filtering required",
-      clearform: "Built-in signal filtering"
+      clearform: "Escalation on the spot — with your notes"
     },
     {
       traditional: "Dashboards full of noise",
-      clearform: "Insights focused on action"
+      clearform: "One view. All your forms. All your signals."
     }
   ];
 
   return (
-    <section className="py-16 md:py-24 ">
-      <div className="mx-auto max-w-xl px-4 sm:px-6">
+    <section className="py-16 md:py-24">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Main Title */}
         <div className="mb-5 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-1">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
             Why Clearform Wins
           </h2>
           <p className="text-[17px] text-gray-600">
@@ -42,26 +42,21 @@ export default function ComparisonTable() {
 
         {/* Comparison Flex Container */}
         <div className="relative flex flex-col md:flex-row">
-          
-          {/* Column 1: Traditional Forms (Blurred/Recessed) */}
-          <div 
-            className="flex-1"
-            style={{
-              filter: "blur(0.5px)"
-            }}
-          >
-            <div className="bg-gray-100 rounded-lg p-4 md:p-4">
-              <h3 className="text-sm md:text-base font-extrabold text-gray-600 mb-4">Traditional Forms</h3>
-              
+
+          {/* Column 1: Traditional Forms (Muted/Recessed) */}
+          <div className="flex-1 md:pr-4 md:py-8 transition-opacity duration-300 opacity-60 hover:opacity-100">
+            <div className="bg-gray-100 rounded-2xl p-6 md:p-8 h-full border border-gray-200">
+              <h3 className="text-lg md:text-xl font-extrabold text-gray-700 mb-6">Traditional Forms</h3>
+
               {/* Example Section */}
-              <div className="mb-4 p-2 bg-gray-200 rounded">
-                <p className="text-xs text-gray-500 ">Complex manual entry</p>
+              <div className="mb-6 p-4 bg-gray-200/60 rounded-xl min-h-[64px] flex items-center">
+                <p className="text-sm font-medium text-gray-500">Complex manual entry</p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {comparisonData.map((item, index) => (
-                  <div key={index} className="pb-2 border-b border-gray-300">
-                    <p className="text-sm text-gray-700 leading-relaxed font-medium">{item.traditional}</p>
+                  <div key={index} className="pb-4 border-b border-gray-300 min-h-[64px] flex items-center">
+                    <p className="text-base text-gray-600 leading-relaxed font-semibold">{item.traditional}</p>
                   </div>
                 ))}
               </div>
@@ -69,30 +64,31 @@ export default function ComparisonTable() {
           </div>
 
           {/* Column 2: Clearform (Prominent/Primary) */}
-          <div 
-            className="flex-1 relative z-10 shadow-2xl rounded-xl -mt-6 md:mt-0 md:-mx-4">
-            <div className="bg-white  p-4 md:p-4 h-full  rounded-2xl">
-              <div className="mb-4">
+          <div className="flex-1 relative z-10 -mt-6 md:mt-0 md:-ml-8 transition-transform duration-500 hover:scale-[1.02]">
+            <div className="bg-white p-6 md:p-8 h-full rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100">
+              <div className="mb-6">
                 <Image
                   src={ClearformLogo}
-                  width={125}
-                  height={40}
+                  width={150}
+                  height={48}
                   alt="Clearform Logo"
                   className="h-auto w-auto"
                 />
               </div>
 
               {/* Example Section */}
-              <div className="mb-4 p-2 bg-gray-50 rounded border border-green-600">
-                <p className="text-xs font-bold ">Intelligent, frictionless flow</p>
+              <div className="mb-6 p-4 bg-green-50/50 rounded-xl border border-green-200 min-h-[64px] flex items-center">
+                <p className="text-sm font-bold text-gray-900">Intelligent, frictionless flow</p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {comparisonData.map((item, index) => (
-                  <div key={index} className="pb-3 border-b border-gray-200">
-                    <div className="flex items-start gap-2">
-                      <span className="text-green-600 font-bold text-lg shrink-0 mt-0">✓</span>
-                      <p className="text-sm text-gray-900 font-semibold leading-relaxed">{item.clearform}</p>
+                  <div key={index} className="pb-4 border-b border-gray-100 min-h-[64px] flex items-center">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 shrink-0">
+                        <span className="text-green-600 font-bold text-sm">✓</span>
+                      </div>
+                      <p className="text-base text-gray-900 font-bold leading-relaxed">{item.clearform}</p>
                     </div>
                   </div>
                 ))}
@@ -105,7 +101,7 @@ export default function ComparisonTable() {
         {/* Bottom CTA Text */}
         <div className="mt-8 text-center">
           <p className="text-gray-600 max-w-2xl text-[18px] mx-auto">
-            Experience the difference between collecting feedback and understanding it. 
+            Experience the difference between collecting feedback and understanding it.
             Clearform delivers clarity, not clutter.
           </p>
         </div>

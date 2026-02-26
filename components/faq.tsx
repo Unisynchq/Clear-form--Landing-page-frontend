@@ -12,7 +12,7 @@ interface FAQProps {
   title?: string;
 }
 
-export default function FAQ({ 
+export default function FAQ({
   items = [
     {
       question: "When will I get access?",
@@ -32,33 +32,32 @@ export default function FAQ({
   };
 
   return (
-    <div className="faq-section my-28 w-full max-w-4xl">
-      <h2 className="text-2xl md:text-5xl font-bold text-gray-900 text-center mb-10">
+    <div className="faq-section my-28 w-full max-w-3xl mx-auto">
+      <h2 className="text-2xl md:text-3xl tracking-tight font-semibold text-slate-900 text-center mb-10">
         {title}
       </h2>
-      <div className="space-y-3">
+      <div className="space-y-0 text-left border-t border-slate-200">
         {items.map((item, index) => (
-          <div key={index} className="faq-item bg-white rounded-lg border border-gray-200 shadow-sm">
+          <div key={index} className="faq-item border-b border-slate-200 group">
             <button
               onClick={() => toggleFAQ(index)}
-              className="accordion-button w-full flex items-center justify-between px-6 py-3 text-left"
+              className="accordion-button w-full flex items-center justify-between py-5 text-left focus:outline-none"
             >
-              <span className="font-semibold text-gray-900 text-[17px]">{item.question}</span>
+              <span className="font-medium text-slate-900 text-base md:text-lg transition-colors group-hover:text-blue-600">{item.question}</span>
               <svg
-                className={`w-5 h-5 text-red-700 transition-transform duration-500 ${
-                  openFAQ === index ? 'transform rotate-180' : ''
-                }`}
+                className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${openFAQ === index ? 'transform rotate-180' : ''
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 " />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div
               className={`accordion-content ${openFAQ === index ? 'open' : ''}`}
             >
-              <div className="px-6 pt-3 pb-4 text-gray-700 text-[16px] leading-relaxed border-t border-gray-100">
+              <div className="pb-6 text-slate-500 text-sm md:text-base leading-relaxed pr-8">
                 {item.answer}
               </div>
             </div>
@@ -68,11 +67,7 @@ export default function FAQ({
 
       <style jsx>{`
         .accordion-button {
-          transition: all 0.3s ease-out;
-        }
-
-        .accordion-button:hover {
-          color: #dc2626;
+          transition: all 0.2s ease-out;
         }
 
         .accordion-content {

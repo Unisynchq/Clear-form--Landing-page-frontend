@@ -12,12 +12,14 @@ import BusinessCategories from "@/components/business-categories";
 import ComparisonTable from "@/components/comparisonTable";
 import PreIncubated from "@/components/pre-incubated";
 import Cta from "@/components/cta";
+import ScrollIndicator from "@/components/scroll-indicator";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <PreIncubated />
+      <ScrollIndicator />
       <ModernAlternative />
       <Dashboard />
       <FeedbackWorkflow />

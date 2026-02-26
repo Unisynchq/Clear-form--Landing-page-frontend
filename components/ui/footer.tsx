@@ -8,10 +8,14 @@ export default function Footer({ border = false }: { border?: boolean }) {
       behavior: 'smooth'
     });
   };
-  
+
   return (
     <footer>
+      {/* Top gradient line - Full Width */}
+      <div className="w-full h-[1px] bg-linear-to-r from-transparent via-gray-400 to-transparent my-8 opacity-50" />
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
+
         {/* Top area: Blocks */}
         <div
           className={`grid gap-10 py-8 sm:grid-cols-12 md:py-12 ${border ? " [border-image:linear-gradient(to_right,transparent,var(--color-slate-200),transparent)1]" : ""}`}
@@ -106,7 +110,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="/about"
+                  href="#0"
                 >
                   About
                 </Link>
@@ -210,6 +214,6 @@ export default function Footer({ border = false }: { border?: boolean }) {
           <div className="h-56 w-56 rounded-full border-20 border-[#F94136] blur-[80px]"></div>
         </div>
       </div>
-    </footer>  
+    </footer>
   );
 }

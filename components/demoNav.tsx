@@ -1,34 +1,89 @@
 'use client';
 
 import { useState } from 'react';
+import SmartVideo from '@/components/smart-video';
 
 const videoData = {
-  startups: {
+  monitor: {
     label: 'Monitor',
     videoSrc: '/videos/Trends.mp4',
     title: 'Monitor Real Signals',
-    description: 'Capture responses across forms and channels in real time. Track submission flow, engagement velocity, and emerging patterns without digging through noise.',
+    description: '',
   },
-  webapps: {
+  measure: {
     label: 'Measure',
     videoSrc: '/videos/PerformanceSnapshot.mp4',
     title: 'Measure What Matters',
-    description: 'Go beyond sentiment. Evaluate response clarity, completeness, and decision-readiness using logic-based scoring — not vanity metrics.',
+    description: '',
   },
-  ecommerce: {
+  act: {
     label: 'Act',
     videoSrc: '/videos/inbox.mp4',
     title: 'Act with Confidence',
-    description: 'Export structured insights, trigger workflows, and align your team around clear signals — not assumptions. Make faster decisions with less guesswork.',
+    description: '',
   },
 };
 
+const actContent = (
+  <>
+    <p className="text-sm md:text-base text-gray-600 mb-3 text-start">
+      Turn feedback into action — without the manual effort. Export structured insights and align your team around what users actually said.
+    </p>
+    <ul className="space-y-2 text-sm md:text-base text-gray-600 text-start">
+      <li className="flex items-start gap-2">
+        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+        Escalate individual responses via email with your own notes — so the right person gets full context, not just a data dump.
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+        Trigger workflows based on structured signals, not gut feel — and make faster decisions with less back-and-forth.
+      </li>
+    </ul>
+  </>
+);
+
+const monitorContent = (
+  <>
+    <p className="text-sm md:text-base text-gray-600 mb-3 text-start">
+      See everything happening across your forms — in one simple view. No dashboards to dig through, no noise to filter.
+    </p>
+    <ul className="space-y-2 text-sm md:text-base text-gray-600 text-start">
+      <li className="flex items-start gap-2">
+        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+        Track score trends and average time to answer — see how response quality changes over time at a glance.
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+        Compare completion rate vs. total responses — instantly know if people are finishing your form or dropping off.
+      </li>
+    </ul>
+  </>
+);
+
+const measureContent = (
+  <>
+    <p className="text-sm md:text-base text-gray-600 mb-3 text-start">
+      Go beyond surface-level data. Evaluate how clear, complete, and actionable each response really is — using logic-based scoring that tells you something useful.
+    </p>
+    <ul className="space-y-2 text-sm md:text-base text-gray-600 text-start">
+      <li className="flex items-start gap-2">
+        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+        See views, clicks, and engagement rate per question — so you know exactly where people drop off or lose interest.
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400" />
+        Track net conversion rate to understand how effective each question is at getting a quality response — not just any response.
+      </li>
+    </ul>
+  </>
+);
+
 export default function DemoNav() {
-  const [activeTab, setActiveTab] = useState('startups');
+  const [activeTab, setActiveTab] = useState('monitor');
   const currentVideo = videoData[activeTab as keyof typeof videoData];
 
   return (
-    <div className="my-15 py-20 text-center">
+    <div className="-mt-24 py-8 text-center">
       <style>{`
         @keyframes floatIn {
           from {
@@ -44,73 +99,47 @@ export default function DemoNav() {
           animation: floatIn 0.6s ease-out;
         }
       `}</style>
-      
+
       {/* Navigation Tabs */}
       <div className="mb-15 inline-flex gap-3 rounded-3xl bg-white/80 p-2 shadow-xl backdrop-blur-xl border border-grey-50" data-aos="fade-in" data-aos-duration="800">
         {Object.entries(videoData).map(([key, data]) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`flex items-center gap-2 rounded-xl px-5 text-[16px] py-2 font-semibold transition-all duration-300 ${
-              activeTab === key
-                ? 'bg-gray-800 text-white shadow-lg'
-                : 'bg-transparent text-gray-700 hover:text-gray-900'
-            }`}
+            className={`flex items-center gap-2 rounded-xl px-4 text-[14px] py-1.5 font-semibold transition-all duration-300 ${activeTab === key
+              ? 'bg-gray-800 text-white shadow-lg'
+              : 'bg-transparent text-gray-700 hover:text-gray-900'
+              }`}
           >
-            {key === 'monitor' && <div className="h-2 w-2 rounded-full bg-current" />}
-            {key === 'measure' && <div className="h-2 w-2 rounded-full bg-current" />}
-            {key === 'act' && <div className="h-2 w-2 rounded-full bg-current" />}
-            {data.label}
+            <div className={`h-2 w-2 rounded-full transition-all duration-300 ${activeTab === key ? 'bg-current opacity-100' : 'bg-transparent opacity-0'}`} />
+            <span>{data.label}</span>
           </button>
         ))}
       </div>
 
-      {/* 60/40 Split Layout */}
-      <div className="mx-auto max-w-345 px-4 sm:px-6">
-        <div className="md:flex  gap-12 items-stretch">
+      {/* Wide Layout */}
+      <div className="mx-auto w-[92%] max-w-screen-xl px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-stretch">
           {/* Video Container - 60% */}
           <div
             key={`video-${activeTab}`}
-            className="md:w-3/5 flex items-center justify-center animate-float-in" 
-            data-aos="fade-up"
-            data-aos-duration="900"
-            data-aos-easing="ease-out-quad"
+            className="w-full md:w-3/5 flex items-center justify-center animate-float-in"
           >
-            <div
-              className="relative w-full rounded-3xl overflow-hidden shadow-2xl"
-              style={{
-                aspectRatio: activeTab === 'webapps' ? '9/16' : '16/9',
-                maxWidth: activeTab === 'webapps' ? '280px' : '100%',
-                margin: activeTab === 'webapps' ? '0 auto' : '0',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5) inset',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-              }}
-            >
-              <video
-                key={activeTab}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover"
-                src={currentVideo.videoSrc}
-              />
-              {/* Glass effect overlay */}
-              <div className="absolute inset-0 pointer-events-none rounded-3xl bg-linear-to-br from-white/10 via-transparent to-transparent" />
-            </div>
+            <SmartVideo
+              src={currentVideo.videoSrc}
+              aspectRatio={activeTab === 'measure' ? '9/16' : '16/9'}
+              maxWidth={activeTab === 'measure' ? '380px' : '100%'}
+              rounded="rounded-2xl"
+            />
           </div>
 
           {/* Text Content - 40% */}
-          <div key={`text-${activeTab}`} className="md:w-2/5 my-auto animate-float-in " data-aos="fade-left" data-aos-duration="900">
-            <div className='flex-col md:items-start inline-flex mt-8'>
-              <h2 className="text-4xl font-bold mb-4 text-gray-900">{currentVideo.title}</h2>
-              <p className="text-lg text-gray-600 mb-8 md:text-start">{currentVideo.description}</p>
-              {/* Placeholder for future CTA button */}
-              <div className="h-12 w-32 rounded-lg mx-auto md:mx-0 bg-blue-600 text-white font-semibold flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-                Learn More
-              </div>
+          <div key={`text-${activeTab}`} className="w-full md:w-2/5 my-auto animate-float-in">
+            <div className="flex-col items-start inline-flex">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">{currentVideo.title}</h2>
+              {activeTab === 'act' ? actContent : activeTab === 'measure' ? measureContent : activeTab === 'monitor' ? monitorContent : (
+                <p className="text-sm md:text-base text-gray-600 mb-6 text-start">{currentVideo.description}</p>
+              )}
             </div>
           </div>
         </div>
