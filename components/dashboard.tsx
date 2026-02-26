@@ -3,7 +3,7 @@ import SmartVideo from '@/components/smart-video';
 
 export default function Dashboard() {
   return (
-    <div className="mt-8 pb-16 text-center">
+    <div id='dashboard' className=" py-40 pb-16 text-center">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
 

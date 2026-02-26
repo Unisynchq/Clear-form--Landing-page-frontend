@@ -2,11 +2,11 @@
 
 export default function ModernAlternative() {
   return (
-    <div className="relative pt-10 pb-2 sm:pt-14">
+    <div className="relative my-30  pt-10  sm:pt-14">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-left space-y-8" data-aos="fade-up" data-aos-duration="900">
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight">
             A Modern Alternative
             <br />
             to Traditional Form Builders
@@ -18,7 +18,7 @@ export default function ModernAlternative() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
+          <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
             Most form builders collect noise. Clearform collects clarity. By intelligently guiding users as they respond, we transform raw feedback into actionable insights — no cleanup required.
           </p>
 

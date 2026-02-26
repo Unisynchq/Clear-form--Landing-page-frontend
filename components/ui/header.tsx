@@ -7,9 +7,9 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const navLinks = [
-  { href: "/product", label: "Product" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "#dashboard", label: "Product" },
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#integrations", label: "Integrations" },
   { href: "/blog", label: "Blog" },
 ];
 
@@ -50,7 +50,7 @@ export default function Header() {
           border: "1px solid rgba(210, 210, 210, 0.6)",
           boxShadow: "0 4px 24px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04)",
           borderRadius: "9999px",
-          padding: "8px 32px",
+          padding: "8px 25px",
         }}
         className="w-full max-w-4xl flex items-center justify-between"
       >

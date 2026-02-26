@@ -12,7 +12,7 @@ export default function PreIncubated() {
             transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
             className="relative py-0 -mt-6 mb-4"
         >
-            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 my-20">
                 <div className="pt-4 md:pt-0 flex flex-col items-center gap-3">
                     <div className="flex w-full items-center justify-center gap-4">
                         <div className="w-12 md:w-16 h-px bg-gray-200" />

@@ -88,7 +88,7 @@ export default function HeroHome() {
                                             </span>
                                         </button>
                                     </Link>
-                                    <p className="text-sm mx-auto text-gray-600 mt-3 text-center sm:text-left">
+                                    <p className="text-sm mx-auto text-gray-600 mt-3 text-center ">
                                         Free early access. Limited pilot spots for startups & product teams.
                                     </p>
                                 </motion.div>

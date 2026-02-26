@@ -83,7 +83,7 @@ export default function DemoNav() {
   const currentVideo = videoData[activeTab as keyof typeof videoData];
 
   return (
-    <div className="-mt-24 py-8 text-center">
+    <div id='how-it-works' className="-mt-24 pt-35 text-center">
       <style>{`
         @keyframes floatIn {
           from {
@@ -118,7 +118,7 @@ export default function DemoNav() {
       </div>
 
       {/* Wide Layout */}
-      <div className="mx-auto w-[92%] max-w-screen-xl px-4 sm:px-6">
+      <div className="mx-auto w-[92%] max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-stretch">
           {/* Video Container - 60% */}
           <div

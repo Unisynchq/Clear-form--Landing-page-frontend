@@ -1,6 +1,6 @@
 export default function ScrollIndicator() {
     return (
-        <section className="flex flex-col items-center justify-center pt-0 pb-2 gap-0 select-none -mt-8">
+        <section className="flex flex-col my-20 items-center justify-center pt-0 pb-2 gap-0 select-none -mt-8">
             <span className="text-xs font-bold tracking-[0.35em] text-gray-400 uppercase mb-0">
                 Scroll
             </span>

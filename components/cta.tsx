@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function Cta() {
   return (
-    <section className="relative my-16">
+    <section className="relative my-26">
       {/* Subtle fading top separator */}
       <div className="w-full h-px bg-linear-to-r from-transparent via-gray-300/60 to-transparent mb-16" />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
         {/* Eyebrow */}
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 mb-4">
           Limited Early Access
         </p>
 
@@ -34,7 +34,7 @@ export default function Cta() {
           </button>
         </Link>
 
-        <p className="text-xs text-gray-400 mt-4">Free during beta · No credit card needed</p>
+        <p className="text-xs text-gray-600 mt-4">Free during beta · No credit card needed</p>
       </div>
     </section>
   );

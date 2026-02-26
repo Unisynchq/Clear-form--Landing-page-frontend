@@ -10,18 +10,18 @@ import WhatsAppImg from "@/public/images/whatsapp.png";
 export default function BusinessCategories() {
   return (
     <section>
-      <div className="mx-auto mt-48 mb-20 max-w-7xl px-4 sm:px-6">
+      <div id="integrations" className="mx-auto pt-30 mt-48 mb-20 max-w-4xl px-4 sm:px-6">
 
         {/* Title */}
-        <div className="mb-1 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+        <div className="mb-3 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <h2 className="text-2xl sm:text-5xl font-bold text-gray-900">
             Collect feedback where your customers already are
           </h2>
         </div>
 
         {/* Description Text */}
-        <div className="mb-12 text-center max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="800">
-          <p className="text-xl sm:text-[18px] text-gray-700 leading-relaxed font-medium">
+        <div className="mb-12 text-center max-w-xl mx-auto" data-aos="fade-up" data-aos-duration="800">
+          <p className="text-lg sm:text-[18px] text-gray-700 leading-relaxed font-medium">
             Feedback doesn't live inside forms.
 
             It lives in conversations — WhatsApp, web, CRM, support.

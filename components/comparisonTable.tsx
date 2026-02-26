@@ -28,14 +28,14 @@ export default function ComparisonTable() {
   ];
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+    <section className="py-12 md:py-16">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
         {/* Main Title */}
-        <div className="mb-5 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
+        <div className="mb-3 text-center">
+          <h2 className="mb-1 text-2xl font-bold text-gray-900 md:text-4xl">
             Why Clearform Wins
           </h2>
-          <p className="text-[17px] text-gray-600">
+          <p className="text-base text-gray-600">
             See how Clearform transforms feedback collection
           </p>
         </div>
@@ -44,19 +44,19 @@ export default function ComparisonTable() {
         <div className="relative flex flex-col md:flex-row">
 
           {/* Column 1: Traditional Forms (Muted/Recessed) */}
-          <div className="flex-1 md:pr-4 md:py-8 transition-opacity duration-300 opacity-60 hover:opacity-100">
-            <div className="bg-gray-100 rounded-2xl p-6 md:p-8 h-full border border-gray-200">
-              <h3 className="text-lg md:text-xl font-extrabold text-gray-700 mb-6">Traditional Forms</h3>
+          <div className="flex-1 opacity-60 transition-opacity duration-300 hover:opacity-100 md:basis-[46%] md:flex-none md:py-4 md:pr-3">
+            <div className="h-full rounded-2xl border border-gray-200 bg-gray-100 p-4 md:p-5">
+              <h3 className="mb-4 text-base font-extrabold text-gray-700 md:text-lg">Traditional Forms</h3>
 
               {/* Example Section */}
-              <div className="mb-6 p-4 bg-gray-200/60 rounded-xl min-h-[64px] flex items-center">
+              <div className="mb-4 flex min-h-12 items-center rounded-xl bg-gray-200/60 p-2.5">
                 <p className="text-sm font-medium text-gray-500">Complex manual entry</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {comparisonData.map((item, index) => (
-                  <div key={index} className="pb-4 border-b border-gray-300 min-h-[64px] flex items-center">
-                    <p className="text-base text-gray-600 leading-relaxed font-semibold">{item.traditional}</p>
+                  <div key={index} className="flex min-h-12 items-center border-b border-gray-300 pb-2">
+                    <p className="text-sm font-semibold leading-relaxed text-gray-600 md:text-base">{item.traditional}</p>
                   </div>
                 ))}
               </div>
@@ -64,31 +64,31 @@ export default function ComparisonTable() {
           </div>
 
           {/* Column 2: Clearform (Prominent/Primary) */}
-          <div className="flex-1 relative z-10 -mt-6 md:mt-0 md:-ml-8 transition-transform duration-500 hover:scale-[1.02]">
-            <div className="bg-white p-6 md:p-8 h-full rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100">
-              <div className="mb-6">
+          <div className="relative z-10 -mt-4 flex-1 transition-transform duration-500 hover:scale-[1.01] md:-ml-6 md:mt-0 md:basis-[54%] md:flex-none">
+            <div className="h-full rounded-3xl border border-gray-100 bg-white p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] md:p-5">
+              <div className="mb-4">
                 <Image
                   src={ClearformLogo}
-                  width={150}
-                  height={48}
+                  width={130}
+                  height={42}
                   alt="Clearform Logo"
                   className="h-auto w-auto"
                 />
               </div>
 
               {/* Example Section */}
-              <div className="mb-6 p-4 bg-green-50/50 rounded-xl border border-green-200 min-h-[64px] flex items-center">
+              <div className="mb-4 flex min-h-12 items-center rounded-xl border border-green-200 bg-green-50/50 p-2.5">
                 <p className="text-sm font-bold text-gray-900">Intelligent, frictionless flow</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {comparisonData.map((item, index) => (
-                  <div key={index} className="pb-4 border-b border-gray-100 min-h-[64px] flex items-center">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 shrink-0">
-                        <span className="text-green-600 font-bold text-sm">✓</span>
+                  <div key={index} className="flex min-h-12 items-center border-b border-gray-100 pb-2">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100">
+                        <span className="text-xs font-bold text-green-600">✓</span>
                       </div>
-                      <p className="text-base text-gray-900 font-bold leading-relaxed">{item.clearform}</p>
+                      <p className="text-sm font-bold leading-relaxed text-gray-900 md:text-base">{item.clearform}</p>
                     </div>
                   </div>
                 ))}
@@ -99,8 +99,8 @@ export default function ComparisonTable() {
         </div>
 
         {/* Bottom CTA Text */}
-        <div className="mt-8 text-center">
-          <p className="text-gray-600 max-w-2xl text-[18px] mx-auto">
+        <div className="mt-5 text-center">
+          <p className="mx-auto max-w-2xl text-base text-gray-600 md:text-[17px]">
             Experience the difference between collecting feedback and understanding it.
             Clearform delivers clarity, not clutter.
           </p>
