@@ -1,37 +1,138 @@
+"use client";
+
 import Link from "next/link";
-import Logo from "./logo";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+
+const navLinks = [
+  { href: "#dashboard", label: "Product" },
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#integrations", label: "Integrations" },
+  { href: "/blog", label: "Blog" },
+];
 
 export default function Header() {
-  return (
-    <header className="fixed top-2 z-30 w-full md:top-6">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-white/90 px-3 shadow-lg shadow-black/[0.03] backdrop-blur-xs before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-          {/* Site branding */}
-          <div className="flex flex-1 items-center">
-            <Logo />
-          </div>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
-          {/* Desktop sign in links */}
-          <ul className="flex flex-1 items-center justify-end gap-3">
-            <li>
+  useEffect(() => setIsMenuOpen(false), [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial scroll position
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <motion.header
+      initial={{ opacity: 0, y: -20, pointerEvents: "none" }}
+      animate={{
+        opacity: isScrolled ? 1 : 0,
+        y: isScrolled ? 0 : -20,
+        pointerEvents: isScrolled ? "auto" : "none"
+      }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="fixed top-5 z-30 w-full flex justify-center px-6"
+    >
+      {/* Glassmorphism pill — full width up to max-w-4xl */}
+      <div
+        style={{
+          background: "rgba(235, 235, 235, 0.72)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: "1px solid rgba(210, 210, 210, 0.6)",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04)",
+          borderRadius: "9999px",
+          padding: "8px 25px",
+        }}
+        className="w-full max-w-4xl flex items-center justify-between"
+      >
+        {/* Logo — left aligned */}
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <Image
+            src="/images/logo.png"
+            width={32}
+            height={32}
+            alt="Clearform logo"
+            priority
+          />
+          <span
+            style={{
+              fontSize: "18px",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              color: "#111",
+            }}
+          >
+            Clearform
+          </span>
+        </Link>
+
+        {/* Desktop nav — centered */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
               <Link
-                href="/signin"
-                className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
+                key={link.href}
+                href={link.href}
+                style={{ fontSize: "15.5px" }}
+                className={`px-4 py-2 rounded-full transition-all duration-150 ${isActive
+                  ? "font-semibold text-gray-900"
+                  : "font-medium text-gray-500 hover:text-gray-800"
+                  }`}
               >
-                Login
+                {link.label}
               </Link>
-            </li>
-            <li>
-              <Link
-                href="/signup"
-                className="btn-sm bg-gray-800 text-gray-200 shadow-sm hover:bg-gray-900"
-              >
-                Register
-              </Link>
-            </li>
+            );
+          })}
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden flex flex-col gap-1.5"
+          aria-label="Toggle menu"
+        >
+          <span className={`w-5 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`w-5 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+          <span className={`w-5 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      {isMenuOpen && (
+        <div
+          className="md:hidden absolute top-16 left-6 right-6 rounded-2xl p-4"
+          style={{
+            background: "rgba(240, 240, 240, 0.92)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            border: "1px solid rgba(210,210,210,0.6)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+          }}
+        >
+          <ul className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block px-4 py-2.5 text-[14px] text-gray-700 hover:text-gray-900 hover:bg-white/60 rounded-xl transition-all duration-150"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-      </div>
-    </header>
+      )}
+    </motion.header>
   );
 }

@@ -1,53 +1,40 @@
-import Image from "next/image";
-import Stripes from "@/public/images/stripes-dark.svg";
+'use client';
+
+import Link from "next/link";
 
 export default function Cta() {
   return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div
-          className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900"
-          data-aos="zoom-y-out"
-        >
-          {/* Glow */}
-          <div
-            className="absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 translate-y-1/2"
-            aria-hidden="true"
-          >
-            <div className="h-56 w-[480px] rounded-full border-[20px] border-blue-500 blur-3xl" />
-          </div>
-          {/* Stripes illustration */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 transform"
-            aria-hidden="true"
-          >
-            <Image
-              className="max-w-none"
-              src={Stripes}
-              width={768}
-              height={432}
-              alt="Stripes"
-            />
-          </div>
-          <div className="px-4 py-12 md:px-12 md:py-20">
-            <h2 className="mb-6 border-y text-3xl font-bold text-gray-200 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.7),transparent)1] md:mb-12 md:text-4xl">
-              Create your next project with Simple
-            </h2>
-            <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-              <a
-                className="btn group mb-4 w-full bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-sm hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                href="#0"
-              >
-                <span className="relative inline-flex items-center">
-                  Start Free Trial{" "}
-                  <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
-                    -&gt;
-                  </span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
+    <section className="relative my-26">
+      {/* Subtle fading top separator */}
+      <div className="w-full h-px bg-linear-to-r from-transparent via-gray-300/60 to-transparent mb-16" />
+
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+        {/* Eyebrow */}
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 mb-4">
+          Limited Early Access
+        </p>
+
+        {/* Headline */}
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 mb-3 leading-tight">
+          Start measuring what matters.
+        </h2>
+
+        <p className="text-gray-500 text-base max-w-md mx-auto mb-10">
+          Join teams already using Clearform to turn feedback into clear decisions.
+        </p>
+
+        <Link href="/early-access">
+          <button className="inline-flex items-center gap-3 bg-gray-900 text-white px-9 py-4 rounded-xl font-semibold text-base tracking-wide shadow-md hover:bg-gray-800 transition-all duration-200 group">
+            Get Early Access
+            <span className="group-hover:translate-x-0.5 transition-transform duration-200 flex items-center">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+        </Link>
+
+        <p className="text-xs text-gray-600 mt-4">Free during beta · No credit card needed</p>
       </div>
     </section>
   );

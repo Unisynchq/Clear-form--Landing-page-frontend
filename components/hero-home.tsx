@@ -1,154 +1,109 @@
-import Image from "next/image";
+'use client';
+
 import PageIllustration from "@/components/page-illustration";
-import Avatar01 from "@/public/images/avatar-01.jpg";
-import Avatar02 from "@/public/images/avatar-02.jpg";
-import Avatar03 from "@/public/images/avatar-03.jpg";
-import Avatar04 from "@/public/images/avatar-04.jpg";
-import Avatar05 from "@/public/images/avatar-05.jpg";
-import Avatar06 from "@/public/images/avatar-06.jpg";
+import Link from "next/link";
+import GradientText from "@/components/gradient-text";
+import { motion } from "framer-motion";
 
 export default function HeroHome() {
-  return (
-    <section className="relative">
-      <PageIllustration />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Hero content */}
-        <div className="pb-12 pt-32 md:pb-20 md:pt-40">
-          {/* Section header */}
-          <div className="pb-12 text-center md:pb-16">
-            <div
-              className="mb-6 border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1]"
-              data-aos="zoom-y-out"
-            >
-              <div className="-mx-0.5 flex justify-center -space-x-3">
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar01}
-                  width={32}
-                  height={32}
-                  alt="Avatar 01"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar02}
-                  width={32}
-                  height={32}
-                  alt="Avatar 01"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar03}
-                  width={32}
-                  height={32}
-                  alt="Avatar 02"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar04}
-                  width={32}
-                  height={32}
-                  alt="Avatar 03"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar05}
-                  width={32}
-                  height={32}
-                  alt="Avatar 04"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar06}
-                  width={32}
-                  height={32}
-                  alt="Avatar 05"
-                />
-              </div>
-            </div>
-            <h1
-              className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl"
-              data-aos="zoom-y-out"
-              data-aos-delay={150}
-            >
-              The website builder you're <br className="max-lg:hidden" />
-              looking for
-            </h1>
-            <div className="mx-auto max-w-3xl">
-              <p
-                className="mb-8 text-lg text-gray-700"
-                data-aos="zoom-y-out"
-                data-aos-delay={300}
-              >
-                Simple is a modern website builder powered by AI that changes
-                how companies create user interfaces together.
-              </p>
-              <div className="relative before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1]">
-                <div
-                  className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center"
-                  data-aos="zoom-y-out"
-                  data-aos-delay={450}
-                >
-                  <a
-                    className="btn group mb-4 w-full bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-sm hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
-                  >
-                    <span className="relative inline-flex items-center">
-                      Start Free Trial{" "}
-                      <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
-                        -&gt;
-                      </span>
-                    </span>
-                  </a>
-                  <a
-                    className="btn w-full bg-white text-gray-800 shadow-sm hover:bg-gray-50 sm:ml-4 sm:w-auto"
-                    href="#0"
-                  >
-                    Learn More
-                  </a>
+    return (
+        <section className="relative">
+
+            <PageIllustration />
+            <div className="mx-auto max-w-4xl px-4 sm:px-6">
+                {/* Hero content */}
+                <div className="pb-8 pt-24 md:pb-0 md:pt-28">
+                    {/* Section header */}
+                    <div className="pb-8 text-center md:pb-0">
+                        <div className="mb-4">
+                            <style>{`
+                                @keyframes ping-green {
+                                    75%, 100% { transform: scale(2); opacity: 0; }
+                                }
+                            `}</style>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                                className="mb-2 inline-flex items-center gap-2 border border-gray-200/60 rounded-full px-5 py-2"
+                            >
+                                <span className="relative flex h-2.5 w-2.5">
+                                    <span
+                                        className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                                        style={{ animation: "ping-green 1.4s cubic-bezier(0, 0, 0.2, 1) infinite" }}
+                                    />
+                                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+                                </span>
+                                <span className="text-sm font-medium text-gray-700">Beta is Live</span>
+                            </motion.div>
+                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+                            className="mb-6 flex justify-center"
+                        >
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 text-center max-w-3xl leading-tight">
+                                Forms Built for{" "}
+                                <GradientText
+                                    colors={["#0f172a", "#475569", "#94a3b8", "#475569", "#0f172a"]}
+                                    animationSpeed={10}
+                                    direction="horizontal"
+                                    pauseOnHover
+                                    className="font-extrabold"
+                                >
+                                    Clarity
+                                </GradientText>
+                                , Not Just Collection.
+                            </h1>
+                        </motion.div>
+                        <div className="mx-auto max-w-xl">
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+                                className="mb-5 text-base text-gray-600"
+                            >
+                                Clearform improves response quality at the source — so teams receive structured, decision-ready feedback instead of vague opinions.
+
+                            </motion.p>
+                            <div className="relative before:absolute before:inset-0 before:border-t before:[border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1]">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
+                                    className="flex flex-col items-center justify-center mx-auto pt-4 pb-5 max-w-sm"
+                                >
+                                    <Link href="/early-access">
+                                        <button
+                                            className="bg-slate-900 px-6 py-2.5 text-white rounded-xl whitespace-nowrap font-semibold shadow-md transition-all duration-300 text-base tracking-wide group hover:bg-slate-800"
+                                        >
+                                            <span className="relative z-10 flex items-center justify-center gap-2">
+                                                Get Early Access
+                                                <span className="group-hover:translate-x-1 transition-transform duration-200 flex items-center">
+                                                    <svg className="w-5 h-5 -mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </button>
+                                    </Link>
+                                    <p className="text-sm mx-auto text-gray-600 mt-3 text-center ">
+                                        Free early access. Limited pilot spots for startups & product teams.
+                                    </p>
+                                </motion.div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Hero image */}
+                    <div
+                        className="mx-auto max-w-3xl"
+                        data-aos="zoom-y-out"
+                        data-aos-delay={600}
+                    >
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          {/* Hero image */}
-          <div
-            className="mx-auto max-w-3xl"
-            data-aos="zoom-y-out"
-            data-aos-delay={600}
-          >
-            <div className="relative aspect-video rounded-2xl bg-gray-900 px-5 py-3 shadow-xl before:pointer-events-none before:absolute before:-inset-5 before:border-y before:[border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] after:absolute after:-inset-5 after:-z-10 after:border-x after:[border-image:linear-gradient(to_bottom,transparent,--theme(--color-slate-300/.8),transparent)1]">
-              <div className="relative mb-8 flex items-center justify-between before:block before:h-[9px] before:w-[41px] before:bg-[length:16px_9px] before:[background-image:radial-gradient(circle_at_4.5px_4.5px,var(--color-gray-600)_4.5px,transparent_0)] after:w-[41px]">
-                <span className="text-[13px] font-medium text-white">
-                  cruip.com
-                </span>
-              </div>
-              <div className="font-mono text-gray-500 [&_span]:opacity-0">
-                <span className="animate-[code-1_10s_infinite] text-gray-200">
-                  npm login
-                </span>{" "}
-                <span className="animate-[code-2_10s_infinite]">
-                  --registry=https://npm.pkg.github.com
-                </span>
-                <br />
-                <span className="animate-[code-3_10s_infinite]">
-                  --scope=@phanatic
-                </span>{" "}
-                <span className="animate-[code-4_10s_infinite]">
-                  Successfully logged-in.
-                </span>
-                <br />
-                <br />
-                <span className="animate-[code-5_10s_infinite] text-gray-200">
-                  npm publish
-                </span>
-                <br />
-                <span className="animate-[code-6_10s_infinite]">
-                  Package published.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section >
+    );
 }
