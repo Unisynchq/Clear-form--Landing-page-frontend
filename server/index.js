@@ -69,6 +69,45 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+app.get("/api/leads/export", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM leads ORDER BY created_at DESC");
+    
+    if (result.rows.length === 0) {
+      return res.status(404).send("No leads found to export.");
+    }
+
+    // CSV Header
+    const fields = Object.keys(result.rows[0]);
+    let csv = fields.join(",") + "\n";
+
+    // CSV Rows
+    result.rows.forEach(row => {
+      let rowString = fields.map(field => {
+        let val = row[field];
+        if (val === null || val === undefined) val = "";
+        
+        // Escape quotes
+        val = val.toString().replace(/"/g, '""');
+        
+        // Wrap in quotes if it contains comma, quote, or newline
+        if (val.includes(',') || val.includes('"') || val.includes('\\n')) {
+          val = `"${val}"`;
+        }
+        return val;
+      }).join(",");
+      csv += rowString + "\n";
+    });
+
+    res.setHeader("Content-Type", "text/csv");
+    res.setHeader("Content-Disposition", "attachment; file_name=leads.csv");
+    res.status(200).send(csv);
+  } catch (error) {
+    console.error("Error exporting leads:", error);
+    res.status(500).json({ error: "Internal server error during export." });
+  }
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
