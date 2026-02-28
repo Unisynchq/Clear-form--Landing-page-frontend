@@ -26,6 +26,7 @@ export default function PreIncubated() {
                         alt="MeitY Startup Hub"
                         width={310}
                         height={155}
+                        priority
                         className="object-contain opacity-80"
                     />
                 </div>
