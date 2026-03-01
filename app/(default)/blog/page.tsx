@@ -7,7 +7,7 @@ const categories = ["All", "Interviews", "Inspiration", "Updates", "Product", "M
 export default function BlogPage() {
   return (
     <main className="relative mx-auto min-h-screen w-full max-w-4xl px-4 pb-24 pt-24 sm:px-6">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-linear-to-b from-slate-100 via-slate-50 to-transparent" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-76 bg-linear-to-b from-slate-100 via-slate-50 to-transparent" aria-hidden="true" />
 
       <section className="mx-auto max-w-3xl">
         <div className="flex items-center gap-6">
@@ -41,7 +41,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article
             key={post.id}
-            className="group border-l border-blue-700 pl-6 pt-5 pb-5"
+            className="group border-y rounded-4xl border-blue-900 pl-8 pt-5 pb-5"
           >
             <div className="flex items-center gap-2 text-sm text-slate-600">
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-300 text-[10px] font-semibold text-slate-700">
@@ -51,7 +51,7 @@ export default function BlogPage() {
             </div>
 
             <Link href={`/blog/${post.slug}`}>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 transition group-hover:text-blue-900">
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900 transition group-hover:text-blue-900">
                 {post.title}
               </h2>
             </Link>

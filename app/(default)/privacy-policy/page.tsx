@@ -2,12 +2,12 @@
 
 export default function PrivacyPolicyPage() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-16 mt-20">
+    <section className="min-h-screen px-4 py-16">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-          <p className="text-gray-600">Last Updated: February 23, 2026</p>
+        <div className="mb-9">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-2 text-center">Privacy Policy</h1>
+          <p className="text-gray-600 text-center pt-5">Last Updated: February 23, 2026</p>
         </div>
 
         {/* Content */}
@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
               Clearform ("Clearform", "we", "our", or "us") operates a response-first form and feedback platform that enables organizations to collect structured responses and analyze insights.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              We are committed to protecting personal data in accordance with:
+              We are committed to protecting personaleeeeqe data in accordance with:
             </p>
             <ul className="list-disc list-inside text-gray-700 mt-2 space-y-1">
               <li>The Information Technology Act, 2000 (India)</li>
