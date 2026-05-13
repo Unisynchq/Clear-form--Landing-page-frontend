@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import dynamic from "next/dynamic";
 
-import CalendlyButton from "@/components/calendly-button";
+import CalendlyButton, { CAL_15MIN } from "@/components/calendly-button";
 import BlurText from "@/components/blur-text";
 import { RedUnderline } from "@/components/ui/red-underline";
 import { StickyNote } from "@/components/ui/sticky-note";
@@ -145,12 +145,12 @@ export default function HeroHome() {
                 </svg>
                 Book a demo
               </CalendlyButton>
-              <Link
-                href="mailto:hello@clearform.in"
-                className="text-sm font-medium text-gray-500 transition-colors duration-150 hover:text-gray-900 hover:underline"
+              <CalendlyButton
+                url={CAL_15MIN}
+                className="text-sm font-medium text-gray-500 transition-colors duration-150 hover:text-gray-900 hover:underline cursor-pointer bg-transparent border-none p-0"
               >
                 Talk to us
-              </Link>
+              </CalendlyButton>
             </motion.div>
 
             <motion.p
