@@ -71,50 +71,60 @@ export default function HeroHome() {
                 text="Turn user feedback into"
                 animateBy="words"
                 delay={60}
-                </h1>
+                className="block"
+              />
+              <span className="block text-gray-900">
+                clear product <RedUnderline delay={0.7}>decisions.</RedUnderline>
+              </span>
+            </h1>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.65 }}
-                  className="mb-4 flex flex-wrap items-center gap-3"
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mb-8 text-lg leading-relaxed text-gray-600"
+            >
+              Most AI teams collect feedback. Few can actually use it. Clearform improves response quality
+              at the source and shows you exactly what to fix.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.65 }}
+              className="mb-4 flex flex-wrap items-center gap-3"
+            >
+              <Link
+                href="/contact"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gray-900 px-6 py-3.5 text-base font-semibold text-white shadow-[0_18px_40px_-16px_rgba(0,0,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-[0_22px_50px_-16px_rgba(0,0,0,0.55)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-500)]/60"
+              >
+                <span className="relative z-10">Start Pilot for $50</span>
+                <svg
+                  className="relative z-10 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.2}
                 >
-                  <Link
-                    href="/contact"
-                    className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gray-900 px-6 py-3.5 text-base font-semibold text-white shadow-[0_18px_40px_-16px_rgba(0,0,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-[0_22px_50px_-16px_rgba(0,0,0,0.55)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-500)]/60"
-                  >
-                    <span className="relative z-10">Start Pilot for $50</span>
-                    <svg
-                      className="relative z-10 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <span
-                      aria-hidden
-                      className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-                    />
-                  </Link>
-                  <Link
-                    href="/#process"
-                    onClick={(e) => handleAnchor("/#process", e)}
-                    className="group inline-flex items-center gap-2 rounded-xl border border-gray-300 bg-white/70 px-6 py-3.5 text-base font-semibold text-gray-900 backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-400 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-500)]/60"
-                  >
-                    See how it works
-                    <svg
-                      className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                  </Link>
-                </motion.div>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+                />
+              </Link>
+              <Link
+                href="/#process"
+                onClick={(e) => handleAnchor("/#process", e)}
+                className="group inline-flex items-center gap-2 rounded-xl border border-gray-300 bg-white/70 px-6 py-3.5 text-base font-semibold text-gray-900 backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-400 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-500)]/60"
+              >
+                See how it works
+                <svg
+                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.2}
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
