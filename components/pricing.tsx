@@ -15,6 +15,7 @@ import { SectionEyebrow } from "@/components/ui/section-eyebrow";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionLead } from "@/components/ui/section-lead";
 import { Button } from "@/components/ui/button";
+import { CLEARFORM_PILOT_CHECKOUT_URL } from "@/lib/clearform-links";
 
 const FEATURES = [
   "300 responses",
@@ -115,7 +116,7 @@ export default function Pricing() {
                 </p>
 
                 <Button
-                  href="/contact"
+                  href={CLEARFORM_PILOT_CHECKOUT_URL}
                   variant="primary"
                   size="lg"
                   className="mb-8 flex w-full justify-center"
