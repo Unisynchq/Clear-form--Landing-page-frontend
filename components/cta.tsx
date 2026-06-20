@@ -70,7 +70,7 @@ export default function Cta() {
               size="lg"
               className="border-white/20 bg-white text-gray-900 shadow-[0_18px_40px_-16px_rgba(255,255,255,0.32)] hover:bg-white"
             >
-              Start pilot for $50
+              Start pilot for $34.99
               <ArrowRight className="h-4 w-4" />
             </Button>
             <CalendlyButton className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-base font-semibold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 active:scale-[0.98] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40">

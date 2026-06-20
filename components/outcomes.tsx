@@ -53,7 +53,7 @@ export default function Outcomes() {
         </Stagger>
 
         <Reveal delay={0.15}>
-          <div className="text-center">
+            <div className="text-center">
             <p className="mb-8 text-2xl font-extrabold text-gray-900 sm:text-3xl">
               Not more feedback. <RedUnderline delay={0.25}>Better decisions.</RedUnderline>
             </p>
